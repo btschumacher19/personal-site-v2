@@ -3,8 +3,9 @@ import React from 'react'
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Dropdown from './components/Dropdown/Dropdown';
 import GlobalStyle from './globalStyles'
+import Hero from './components/Hero/Hero';
+import { SliderData } from './data/SliderData';
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
       
       <GlobalStyle />
       <Navbar />
-    
+      <Hero slides={ SliderData }/>
     </div>
   );
 }
