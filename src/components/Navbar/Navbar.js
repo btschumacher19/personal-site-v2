@@ -82,11 +82,11 @@ const NavButtonWrap = styled.div`
     }
 `;
 
-const Navbar =()=> {
+const Navbar =( props )=> {
     return (
         <StyledNavbar>
             <Logo to="/">Nice</Logo>
-            <Hamburger />
+            <Hamburger onClick={ props.toggle }/>
             <NavMenu>
             {
                 menuItems.map((item, idx) => (
@@ -96,7 +96,7 @@ const Navbar =()=> {
                 ))
             }
             <NavButtonWrap>
-                <Button to="/contact" >Contact Us</Button>
+                <Button primary={true} to="/contact" >Contact</Button>
             </NavButtonWrap>
             </NavMenu>
         </StyledNavbar>

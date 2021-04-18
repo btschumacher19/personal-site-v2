@@ -105,7 +105,6 @@ const HeroItems = styled.div`
         text-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
     @media screen and (max-width: 768px) {
-        //might give me errors on different screens?
         position: absolute;
         left: 20px;
     }
