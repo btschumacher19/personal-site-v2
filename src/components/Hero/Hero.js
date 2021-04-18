@@ -15,6 +15,15 @@ const centerFlex = css`
     justify-content: center;
 `;
 
+const image = css`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+`;
+
 const SliderButtons = styled.div`
     position: absolute;
     bottom: 50px;
@@ -71,14 +80,16 @@ const HeroSlider = styled.div`
     }
 `;
 
-const HeroImage = styled.img`
-   position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
+const HeroImageUnder = styled.img`
+    ${image}
 `;
+
+const HeroImage = styled.img`
+    ${image}
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+`;
+
 
 const HeroItems = styled.div`
     position: relative;
@@ -189,7 +200,9 @@ const Hero = ({ slides }) => {
                     <HeroSlide key={ idx } >
                         {idx === slideImage && (
                             <HeroSlider>
-                            <HeroImage src={slide.image} alt={slide.alt} />
+                            <HeroImageUnder src='https://media.giphy.com/media/3o7aD4CxCohSTe5vzO/giphy.gif' alt="ll" />
+                            <HeroImage src='https://media.giphy.com/media/3o7aD4CxCohSTe5vzO/giphy.gif' alt="ll"/>
+                            {/* <HeroImage src={slide.image} alt={slide.alt} /> */}
                                 <HeroItems> 
                                     <h1>{slide.title}</h1>
                                     <p>{slide.description}</p>
