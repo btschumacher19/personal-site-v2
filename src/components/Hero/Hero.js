@@ -151,18 +151,18 @@ const Hero = ({ slides }) => {
     const [ slideImage, setSlideImage ] = useState(0)
     const timeout = useRef(null)
 
-    useEffect(() => {
-        const nextSlide =()=> {
-            setSlideImage(slideImage => (slideImage === slides.length-1 ? 0 : slideImage+1))
-        }
-        timeout.current = setTimeout(nextSlide, 4000)
+    // useEffect(() => {
+    //     const nextSlide =()=> {
+    //         setSlideImage(slideImage => (slideImage === slides.length-1 ? 0 : slideImage+1))
+    //     }
+    //     timeout.current = setTimeout(nextSlide, 4000)
 
-        return function () {
-            if(timeout.current) {
-                clearTimeout(timeout.current)
-            }
-        }
-    }, [slideImage, slides.length])
+    //     return function () {
+    //         if(timeout.current) {
+    //             clearTimeout(timeout.current)
+    //         }
+    //     }
+    // }, [slideImage, slides.length])
 
     const nextSlide = () => {
         const slide = (slideImage === slides.length-1 ? 0 : slideImage+1)

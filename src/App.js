@@ -29,6 +29,7 @@ function App() {
       <Hero slides={ SliderData }/>
       <Info { ...InfoDataOne }/>
       <Info {...InfoDataTwo} />
+      
     </div>
   );
 }

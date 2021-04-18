@@ -1,8 +1,8 @@
 export const menuItems = [
-    { title: 'About',
-    link: '/about' },
-    { title: 'Section1',
-    link: '/section-one' },
-    { title: 'Section2',
-    link: '/section-two' },
+    { title: 'About Me',
+    link: '/' },
+    { title: 'Projects',
+    link: '/' },
+    // { title: 'Section2',
+    // link: '/section-two' },
 ]

@@ -13,9 +13,9 @@ import { CgMenuRight } from 'react-icons/cg';
 //background div for navbar
 const StyledNavbar = styled.nav`
     height: 55px;
-    background: black;
-    /* background: rgb(207,78,170);
-background: linear-gradient(122deg, rgba(207,78,170,1) 0%, rgba(148,0,106,1) 100%); */
+    /* background: black; */
+    background: lightgray;
+    /* background: linear-gradient(122deg, rgba(207,78,170,1) 0%, rgba(148,0,106,1) 100%);  */
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;

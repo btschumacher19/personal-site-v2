@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Buttons/PrimaryButton';
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 const Section = styled.section`
     width: 100%;
@@ -36,7 +38,7 @@ const ColumnLeft = styled.div`
     line-height: 1.4;
     padding: 1rem 2rem;
     order: ${({ reverse }) => (reverse ? '2' : '1')};
-
+    
     h1 {
         margin-bottom: 1rem;
         font-size: clamp(1.5rem, 6vw, 2rem)
@@ -72,19 +74,32 @@ const ColumnRight = styled.div`
 `;
 
 const Info = ( props ) => {
-
     const { heading, p1, p2, buttonLabel, reverse, image } = props
     
+    useEffect(() => {
+        Aos.init({ duration: 1200});
+    }, [])
+
+
+    const columnLeftAnimation =( r )=> {
+        return r ? "slide-left" : "slide-right";
+    }
+    const columnRightAnimation =( r )=> {
+        return r ? "slide-right" : "slide-left";
+    }
+
     return (
         <Section>
             <Container>
-                <ColumnLeft reverse={ reverse }>
+                <ColumnLeft reverse={ reverse } data-aos={ columnLeftAnimation(reverse) }>
                     <h1>{ heading }</h1>
+
                     <p>{ p1 }</p>
                     <p>{ p2 }</p>
                     <Button  to='/'>{ buttonLabel }</Button>
+                    
                 </ColumnLeft>
-                <ColumnRight reverse={ reverse }>
+                <ColumnRight reverse={ reverse } data-aos={ columnRightAnimation(reverse) }>
                     <img src={ image } alt=":)"/>
                 </ColumnRight>
             </Container>
