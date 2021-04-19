@@ -1,8 +1,6 @@
 import React, { useState, useRef, useEffect  } from 'react';
 import styled, { css } from 'styled-components/macro';
-
-import { Button } from '../Buttons/PrimaryButton';
-import { IoMdArrowRoundForward } from 'react-icons/io'
+import rain from '../../images/rain.gif'
 import Aos from 'aos';
 import 'aos/dist/aos.css'
 
@@ -25,18 +23,6 @@ const image = css`
     height: 100vh;
     object-fit: cover;
 `;
-
-// const SliderButtons = styled.div`
-//     position: absolute;
-//     bottom: 50px;
-//     right: 50px;
-//     display: flex;
-//     z-index: 10;
-
-//     @media screen and (max-width: 768px) {
-//         right: 20px;
-//     }
-// `;
 
 const HeroPage = styled.section`
     height: 100vh;
@@ -82,15 +68,9 @@ const HeroSlider = styled.div`
 `;
 
 const HeroImageUnder = styled.img`
-    ${image}
+    ${image};
+    opacity: 100%;
 `;
-
-const HeroImage = styled.img`
-    ${image}
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
-`;
-
 
 const HeroItems = styled.div`
     position: relative;
@@ -116,44 +96,7 @@ const HeroItems = styled.div`
         margin-bottom: 1.2rem;
         text-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
-
-    
 `;
-
-const Arrow = styled(IoMdArrowRoundForward)`
-    margin-left: 0.5rem;
-`;
-
-// const arrowButtons = css`
-//     width: 50px;
-//     height: 50px;
-//     color: #fff;
-//     cursor: pointer;
-//     background-color: #000d1a;
-//     border-radius: 50px;
-//     padding: 10px;
-//     margin-right: 1rem;
-//     user-select: none;
-//     transition: 0.3s;
-//     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    
-//     &:hover {
-//         transform: translateY(-2px);
-//         box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 9px -1px, rgba(0, 0, 0, 0.3) 0px 6px 6px -1px;;
-//     }
-
-//     @media screen and (max-width: 768px) {
-//         margin-right: .8rem;
-//     }
-// `;
-
-// const BackArrow = styled(IoArrowBack)`
-//     ${arrowButtons}
-// `;
-
-// const NextArrow = styled(IoArrowForward)`
-//     ${arrowButtons}
-// `;
 
 const Card = styled.div`
     z-index: 2;
@@ -226,9 +169,8 @@ const Hero = () => {
                     <HeroSlide >
                         
                             <HeroSlider>
-                            {/* <HeroImageUnder src='https://media.giphy.com/media/3o7aD4CxCohSTe5vzO/giphy.gif' alt="ll" /> */}
-                            <HeroImageUnder src='../../images/rain.gif' alt="ll" />
-                            <HeroImage src='../../images/rain.gif' alt="ll"/>
+                            <HeroImageUnder src={rain} alt="ll" />
+                            
 
                                 <Card  > 
                                     <div><h1 data-aos={ "slide-up" }>Hello, I'm&nbsp;</h1><span data-aos={ "slide-down" } className="myName">Brenden.</span></div>
