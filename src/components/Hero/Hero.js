@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect  } from 'react';
 import styled, { css } from 'styled-components/macro';
+
 import { Button } from '../Buttons/PrimaryButton';
 import { IoMdArrowRoundForward } from 'react-icons/io'
 import Aos from 'aos';
@@ -225,8 +226,9 @@ const Hero = () => {
                     <HeroSlide >
                         
                             <HeroSlider>
-                            <HeroImageUnder src='https://media.giphy.com/media/3o7aD4CxCohSTe5vzO/giphy.gif' alt="ll" />
-                            <HeroImage src='https://media.giphy.com/media/3o7aD4CxCohSTe5vzO/giphy.gif' alt="ll"/>
+                            {/* <HeroImageUnder src='https://media.giphy.com/media/3o7aD4CxCohSTe5vzO/giphy.gif' alt="ll" /> */}
+                            <HeroImageUnder src='../../images/rain.gif' alt="ll" />
+                            <HeroImage src='../../images/rain.gif' alt="ll"/>
 
                                 <Card  > 
                                     <div><h1 data-aos={ "slide-up" }>Hello, I'm&nbsp;</h1><span data-aos={ "slide-down" } className="myName">Brenden.</span></div>

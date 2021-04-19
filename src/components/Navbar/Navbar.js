@@ -110,12 +110,12 @@ const Navbar =( props )=> {
     return (
         <span>
         <StyledNavbar>
-            <Logo to="/" onClick={() => window.location.replace(`/#top`)}>Brenden Schumacher</Logo>
+            <Logo to="/" onClick={() => window.location.replace(`/personal-site-v2/#top`)}>Brenden Schumacher</Logo>
             <Hamburger onClick={ props.toggle }/>
             <NavMenu>
             {
                 menuItems.map((item, idx) => (
-                    <NavMenuLink to={""} key={idx} onClick={() => window.location.replace(`/#${item.link}`)}>
+                    <NavMenuLink to={""} key={idx} onClick={() => window.location.replace(`/personal-site-v2/#${item.link}`)}>
                         {item.title}
                     </NavMenuLink>
                 ))
