@@ -57,7 +57,7 @@ const DropdownLink = styled(Link)`
     transition: 0.2s ease-in-out;
 
     &:hover {
-        color: black;
+        color: #92d1a2;
     }
 `;
 

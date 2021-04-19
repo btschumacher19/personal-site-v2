@@ -3,19 +3,14 @@ import React from 'react';
 import styled, { css } from 'styled-components/macro';
 import { Link  } from 'react-router-dom';
 import { menuItems } from '../../data/NavItems';
-import { Button } from '../Buttons/PrimaryButton';
+import { SecondaryButton } from '../Buttons/PrimaryButton';
 import { CgMenuRight } from 'react-icons/cg';
 
-//COLORS:
-//100% #94006A - 50% #ca80b5 - 10-3% ca80b5	eacce1	f4e6f0
-//near black #0f000b
 
 //background div for navbar
 const StyledNavbar = styled.nav`
     height: 55px;
-    /* background: black; */
-    background: lightgray;
-    /* background: linear-gradient(122deg, rgba(207,78,170,1) 0%, rgba(148,0,106,1) 100%);  */
+
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -23,6 +18,9 @@ const StyledNavbar = styled.nav`
     z-index: 99;
     position: fixed;
     width: 100%;
+
+    /* background: linear-gradient(0deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2) 100%); */
+
     @media screen and (max-width: 768px) {
         padding: 0.8rem 1.2rem;
         border-bottom-left-radius: 10px;
@@ -43,10 +41,11 @@ const NavLink = css`
 
 //left-most item
 const Logo = styled(Link)`
-${NavLink}
+    ${NavLink}
     color: #fff;
-    font-family: 'Roboto', sans-serif;
-    font-style: italic;
+    font-size: 23px;
+    letter-spacing: 0.05rem;
+    font-family: 'Abril Fatface', cursive;
 `;
 
 const Hamburger = styled(CgMenuRight)`
@@ -63,6 +62,7 @@ const NavMenu = styled.div`
     align-items: center;
     margin-right: -48px;
 
+
     @media screen and (max-width: 768px) {
         display: none;
     }
@@ -70,6 +70,12 @@ const NavMenu = styled.div`
 
 const NavMenuLink = styled(Link)`
     ${NavLink}
+    transition: 0.1s ease-in-out;
+    &:hover {
+        /* border-bottom: solid 2px #92d1a2; */
+        color: #92d1a2;
+        transform: scale(1.1)
+    }
 `;
 
 const NavButtonWrap = styled.div`
@@ -82,24 +88,45 @@ const NavButtonWrap = styled.div`
     }
 `;
 
+export const NavUnder = styled.div`
+z-index: 1 !important;
+height: 55px;
+background: black;
+padding: 1rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+z-index: 99;
+position: fixed;
+width: 100%;
+@media screen and (max-width: 768px) {
+    padding: 0.8rem 1.2rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+`;
+
 const Navbar =( props )=> {
     return (
+        <span>
         <StyledNavbar>
-            <Logo to="/">Nice</Logo>
+            <Logo to="/" onClick={() => window.location.replace(`/#top`)}>Brenden Schumacher</Logo>
             <Hamburger onClick={ props.toggle }/>
             <NavMenu>
             {
                 menuItems.map((item, idx) => (
-                    <NavMenuLink to={item.link} key={idx}>
+                    <NavMenuLink to={""} key={idx} onClick={() => window.location.replace(`/#${item.link}`)}>
                         {item.title}
                     </NavMenuLink>
                 ))
             }
             <NavButtonWrap>
-                <Button primary={true} to="/contact" >Contact</Button>
+                <SecondaryButton to="/" round="true" >Contact</SecondaryButton>
             </NavButtonWrap>
             </NavMenu>
         </StyledNavbar>
+        
+        </span>
     )
 }
 

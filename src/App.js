@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import GlobalStyle from './globalStyles'
-import Navbar from './components/Navbar/Navbar';
+import Navbar, { NavUnder } from './components/Navbar/Navbar';
 import Dropdown from './components/Dropdown/Dropdown';
 import Hero from './components/Hero/Hero';
 import Info from './components/Content/InfoOne';
@@ -24,11 +24,14 @@ function App() {
     <div>
       
       <GlobalStyle />
+      <NavUnder />
       <Navbar toggle={ toggleNav }/>
       <Dropdown isOpen={ isOpen } toggle={ toggleNav } />
-      <Hero slides={ SliderData }/>
+      <Hero />
+      
       <Info { ...InfoDataOne }/>
       <Info {...InfoDataTwo} />
+      
     </div>
   );
 }

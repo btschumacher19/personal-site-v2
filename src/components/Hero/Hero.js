@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect  } from 'react';
 import styled, { css } from 'styled-components/macro';
 import { Button } from '../Buttons/PrimaryButton';
 import { IoMdArrowRoundForward } from 'react-icons/io'
-import { IoArrowForward, IoArrowBack  } from 'react-icons/io5'
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 const hunned = css`
     height: 100%;
@@ -24,18 +25,17 @@ const image = css`
     object-fit: cover;
 `;
 
-const SliderButtons = styled.div`
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
-    display: flex;
-    z-index: 10;
+// const SliderButtons = styled.div`
+//     position: absolute;
+//     bottom: 50px;
+//     right: 50px;
+//     display: flex;
+//     z-index: 10;
 
-    @media screen and (max-width: 768px) {
-        right: 20px;
-    }
-    /* overflow: hidden; */
-`;
+//     @media screen and (max-width: 768px) {
+//         right: 20px;
+//     }
+// `;
 
 const HeroPage = styled.section`
     height: 100vh;
@@ -115,10 +115,7 @@ const HeroItems = styled.div`
         margin-bottom: 1.2rem;
         text-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
-    @media screen and (max-width: 768px) {
-        position: absolute;
-        left: 20px;
-    }
+
     
 `;
 
@@ -126,99 +123,125 @@ const Arrow = styled(IoMdArrowRoundForward)`
     margin-left: 0.5rem;
 `;
 
-const arrowButtons = css`
-    width: 50px;
-    height: 50px;
-    color: #fff;
-    cursor: pointer;
-    background-color: #000d1a;
-    border-radius: 50px;
-    padding: 10px;
-    margin-right: 1rem;
-    user-select: none;
-    transition: 0.3s;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+// const arrowButtons = css`
+//     width: 50px;
+//     height: 50px;
+//     color: #fff;
+//     cursor: pointer;
+//     background-color: #000d1a;
+//     border-radius: 50px;
+//     padding: 10px;
+//     margin-right: 1rem;
+//     user-select: none;
+//     transition: 0.3s;
+//     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 9px -1px, rgba(0, 0, 0, 0.3) 0px 6px 6px -1px;;
+//     &:hover {
+//         transform: translateY(-2px);
+//         box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 9px -1px, rgba(0, 0, 0, 0.3) 0px 6px 6px -1px;;
+//     }
+
+//     @media screen and (max-width: 768px) {
+//         margin-right: .8rem;
+//     }
+// `;
+
+// const BackArrow = styled(IoArrowBack)`
+//     ${arrowButtons}
+// `;
+
+// const NextArrow = styled(IoArrowForward)`
+//     ${arrowButtons}
+// `;
+
+const Card = styled.div`
+    z-index: 2;
+    width: 80%;
+    border-bottom: solid 1px #C5C392;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+    
+    h1 {
+        color: #fff;
+        font-size: 3.8rem;
+
+        @media screen and (max-width: 768px) {
+        font-size: 2rem;
+    }
     }
 
-    @media screen and (max-width: 768px) {
-        margin-right: .8rem;
+    h2 {
+        color: #fff;
+        font-size: 3rem;
+        font-weight: 500;
+        @media screen and (max-width: 768px) {
+        font-size: 2rem;
     }
+    }
+    
+    & .myName {
+        font-size: 3.5rem;
+        background: none;
+        color: #92d1a2;
+        font-weight: 700;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+        transform: rotate(-0.01turn) scale(1.1);
+
+        }
+
+        @media screen and (max-width: 768px) {
+        font-size: 2rem;
+    }
+    }
+    div {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        white-space: nowrap;
+        align-items: baseline;
+    }
+
+    
 `;
 
-const BackArrow = styled(IoArrowBack)`
-    ${arrowButtons}
-`;
-
-const NextArrow = styled(IoArrowForward)`
-    ${arrowButtons}
+const NoWrap = styled.span`
+    white-space: nowrap;
 `;
 
 
-const Hero = ({ slides }) => {
-    const [ slideImage, setSlideImage ] = useState(0)
-    const timeout = useRef(null)
-
-    // useEffect(() => {
-    //     const nextSlide =()=> {
-    //         setSlideImage(slideImage => (slideImage === slides.length-1 ? 0 : slideImage+1))
-    //     }
-    //     timeout.current = setTimeout(nextSlide, 4000)
-
-    //     return function () {
-    //         if(timeout.current) {
-    //             clearTimeout(timeout.current)
-    //         }
-    //     }
-    // }, [slideImage, slides.length])
-
-    const nextSlide = () => {
-        const slide = (slideImage === slides.length-1 ? 0 : slideImage+1)
-        setSlideImage(slide)
-        console.log(slideImage)
-    }
-
-    const prevSlide = () => {
-        const slide = (slideImage === 0 ? slides.length-1 : slideImage-1)
-        setSlideImage(slide)
-        console.log(slideImage)
-    }
-
-    if(!Array.isArray(slides) || slides.length<=0) {
-        return null
-    }
+const Hero = () => {
 
     return (
-        <HeroPage>
+        <HeroPage id="top">
             <HeroWrapper>
-            {
-                slides.map((slide, idx) => {
-                    return (
-                    <HeroSlide key={ idx } >
-                        {idx === slideImage && (
+            
+
+                    <HeroSlide >
+                        
                             <HeroSlider>
                             <HeroImageUnder src='https://media.giphy.com/media/3o7aD4CxCohSTe5vzO/giphy.gif' alt="ll" />
                             <HeroImage src='https://media.giphy.com/media/3o7aD4CxCohSTe5vzO/giphy.gif' alt="ll"/>
-                            {/* <HeroImage src={slide.image} alt={slide.alt} /> */}
-                                <HeroItems> 
-                                    <h1>{slide.title}</h1>
-                                    <p>{slide.description}</p>
-                                    <Button to={slide.path} primary='true' css={`max-width: 160px;`}>
-                                        Click Me<Arrow/>
-                                    </Button>
-                                </HeroItems>
+
+                                <Card  > 
+                                    <div><h1 data-aos={ "slide-up" }>Hello, I'm&nbsp;</h1><span data-aos={ "slide-down" } className="myName">Brenden.</span></div>
+                                    <h2 data-aos={ "slide-left" }>Full Stack <NoWrap>Software Engineer</NoWrap></h2>
+                                    <br/>
+                                </Card>
                                 </HeroSlider>
-                        )}
+                        
                     </HeroSlide>
-                )}
-                )}
-            <SliderButtons>
+                
+                
+            {/* <SliderButtons>
                 <BackArrow onClick={ prevSlide }/>
                 <NextArrow onClick={ nextSlide } />
-            </SliderButtons>
+            </SliderButtons> */}
             </HeroWrapper>
         </HeroPage>
     )
