@@ -7,7 +7,7 @@ import Navbar, { NavUnder } from './components/Navbar/Navbar';
 import Dropdown from './components/Dropdown/Dropdown';
 import Hero from './components/Hero/Hero';
 import Info from './components/Content/InfoOne';
-import { InfoDataOne, InfoDataTwo} from './data/InfoData'
+import { InfoDataOne, InfoDataTwo, InfoDataThree } from './data/InfoData'
 import { SliderData } from './data/SliderData';
 
 
@@ -30,7 +30,8 @@ function App() {
       <Hero />
       
       <Info { ...InfoDataOne }/>
-      <Info {...InfoDataTwo} />
+      <Info { ...InfoDataThree } />
+      <Info { ...InfoDataTwo } />
       
     </div>
   );

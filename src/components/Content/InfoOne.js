@@ -19,8 +19,9 @@ const Section = styled.section`
 const Container = styled.div`
     padding: 3rem calc((100vw - 1300px) / 2);
     height: 100%;
-    display: grid;
+    display: ${({ landscape }) => (landscape ? 'flex' : 'grid')};
     grid-template-columns: 1fr 1fr;
+    flex-direction: column;
     grid-template-rows: 800px;
 
     @media screen and (max-width: 768px) {
@@ -32,6 +33,10 @@ const Container = styled.div`
 
     h1, p {
         text-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    img {
+        border-radius: 6px;
     }
 `;
 
@@ -154,7 +159,7 @@ const LiveIcon = styled(AiOutlineLink)`
 
 
 const Info = ( props ) => {
-    const { heading, p1, p2, githubLink, figmaLink, liveLink, youtubeLink, reverse, image } = props
+    const { heading, p1, p2, githubLink, figmaLink, liveLink, youtubeLink, reverse, image, landscape } = props
     
     useEffect(() => {
         Aos.init({ duration: 1200});
@@ -197,7 +202,7 @@ const Info = ( props ) => {
 
     return (
         <Section id="projects">
-            <Container>
+            <Container landscape={ landscape }>
                 <ColumnLeft reverse={ reverse } data-aos={ columnLeftAnimation(reverse) }>
                     <h1>{ heading }</h1>
 

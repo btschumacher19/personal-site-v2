@@ -1,4 +1,5 @@
 import ImageOne from '../images/ImageOne.png'
+import CodeRoom from '../images/CodeRoom.png'
 
 export const InfoDataOne = {
     heading: 'じゃん拳 (Jyanken) ',
@@ -11,6 +12,7 @@ export const InfoDataOne = {
     githubLink: "https://github.com/btschumacher19/swift-vision-rock-paper-scissors",
     figmaLink: undefined,
     reverse: false,
+    landscape: false,
 }
 
 export const InfoDataTwo = {
@@ -23,4 +25,17 @@ export const InfoDataTwo = {
     githubLink: 'https://github.com/btschumacher19/vaxx-overflow',
     figmaLink: 'https://www.figma.com/proto/JhhHkIswpe0EzcVcVtzB7A/VaxxOverflow?node-id=188%3A4408&viewport=532%2C374%2C0.31290358304977417&scaling=scale-down&page-id=188%3A4407',
     reverse: true,
+    landscape: false,
+}
+export const InfoDataThree = {
+    heading: 'CodeRoom',
+    p1: 'Group project for coding instructors, where they can create coding challenges and generate collaborative, Google-Docs-esque Development Environment (IDE) breakout sessions for students to pair program in with live video chat.',
+    p2: 'Built with React, Django, PostgreSQL, Firebase, Docker, Google Cloud Compute Engine, Firepad, and the Judge0 Compiler API',
+    image: CodeRoom,
+    liveLink: 'https://coderoom.us',
+    youtubeLink: 'https://youtu.be/jgpuf_T0yGE?t=3387',
+    githubLink: 'https://github.com/btschumacher19/coderoom',
+    figmaLink: undefined,
+    reverse: false,
+    landscape: true,
 }
