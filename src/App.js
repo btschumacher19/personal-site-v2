@@ -1,20 +1,18 @@
 import React, { useState } from 'react'
 
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import GlobalStyle from './globalStyles'
 import Navbar, { NavUnder } from './components/Navbar/Navbar';
 import Dropdown from './components/Dropdown/Dropdown';
-import Hero from './components/Hero/Hero';
-import Info from './components/Content/InfoOne';
-import { InfoDataOne, InfoDataTwo} from './data/InfoData'
-import { SliderData } from './data/SliderData';
 
+import Home from './pages/Home';
 
+const BASE_URL = "/personal-site-v2"
 
 function App() {
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [ isOpen, setIsOpen ] = useState(false)
 
   const toggleNav = () => {
     setIsOpen(!isOpen)
@@ -22,15 +20,16 @@ function App() {
 
   return (
     <div>
-      
+      < Router >
       <GlobalStyle />
       <NavUnder />
       <Navbar toggle={ toggleNav }/>
       <Dropdown isOpen={ isOpen } toggle={ toggleNav } />
-      <Hero />
-      
-      <Info { ...InfoDataOne }/>
-      <Info {...InfoDataTwo} />
+        <Route
+          exact path={`${BASE_URL}`}
+          render={(props) => <Home {...props}  />}
+        />
+      </Router>
       
     </div>
   );

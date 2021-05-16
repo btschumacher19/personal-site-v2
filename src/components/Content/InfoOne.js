@@ -1,37 +1,36 @@
 import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { Button } from '../Buttons/PrimaryButton';
 import { AiFillGithub, AiOutlineYoutube, AiOutlineLink } from 'react-icons/ai'
 import { FiFigma } from 'react-icons/fi'
 import Aos from 'aos';
 import 'aos/dist/aos.css'
 
-const Section = styled.section`
-    width: 100%;
-    height: 100%;
-    padding: 4rem 0rem;
-
-    @media screen and (max-width: 768px) {
-        height: auto;
-    }
-`;
 
 const Container = styled.div`
     padding: 3rem calc((100vw - 1300px) / 2);
     height: 100%;
-    display: grid;
+    display: ${({ landscape }) => (landscape ? 'flex' : 'grid')};
     grid-template-columns: 1fr 1fr;
+    flex-direction: column;
     grid-template-rows: 800px;
 
     @media screen and (max-width: 768px) {
         padding: .2rem;
         grid-template-columns: 1fr;
-        grid-template-rows: 600px;
+        grid-template-rows: auto;
 
     }
 
     h1, p {
         text-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    img {
+        border-radius: 6px;
+    }
+
+    div {
+        margin-bottom: 1rem;
     }
 `;
 
@@ -111,50 +110,45 @@ const genericIcon = css`
     margin-top: 32px;
     font-size: 3rem;
     vertical-align: center;
-
+    fill: #000;
+    color: #000;
     transition: 0.3s ease-in-out;
+    &:hover {
+        transform: rotate(0.02turn);
+        fill: #73A580;
+    }
 
 `;
 
 const GithubIcon = styled(AiFillGithub)`
     ${genericIcon}
-    fill: black;
-    &:hover {
-        transform: rotate(0.02turn);
-        fill: #73A580;
-    }
 `;
 
 const FigmaIcon = styled(FiFigma)`
     ${genericIcon}
-    color: black;
+    fill: none;
     &:hover {
         transform: rotate(-0.02turn);
+        fill: none;
         color: #73A580;
     }
 `;
 
 const YoutubeIcon = styled(AiOutlineYoutube)`
     ${genericIcon}
-    fill: black;
-    &:hover {
-        transform: rotate(0.02turn);
-        fill: #73A580;
-    }
+
 `;
 
 const LiveIcon = styled(AiOutlineLink)`
     ${genericIcon}
-    fill: black;
     &:hover {
-        transform: rotate(0.02turn);
-        fill: #73A580;
+        transform: rotate(-0.02turn);
     }
-`
+`;
 
 
 const Info = ( props ) => {
-    const { heading, p1, p2, githubLink, figmaLink, liveLink, youtubeLink, reverse, image } = props
+    const { heading, p1, p2, githubLink, figmaLink, liveLink, youtubeLink, reverse, image, landscape } = props
     
     useEffect(() => {
         Aos.init({ duration: 1200});
@@ -196,8 +190,8 @@ const Info = ( props ) => {
     }
 
     return (
-        <Section id="projects">
-            <Container>
+        <>
+            <Container landscape={ landscape }>
                 <ColumnLeft reverse={ reverse } data-aos={ columnLeftAnimation(reverse) }>
                     <h1>{ heading }</h1>
 
@@ -218,7 +212,7 @@ const Info = ( props ) => {
                     <img src={ image } alt=":)"/>
                 </ColumnRight>
             </Container>
-        </Section>
+        </>
 
     )
 }

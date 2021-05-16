@@ -1,8 +1,8 @@
+const BASE_URL = "/personal-site-v2"
+
 export const menuItems = [
-    { title: 'About Me',
-    link: '/' },
     { title: 'Projects',
-    link: 'projects' },
-    // { title: 'Section2',
-    // link: '/section-two' },
+    link: `${BASE_URL}/#projects` },
+    { title: 'About Me',
+    link: `${BASE_URL}/#about`},
 ]
