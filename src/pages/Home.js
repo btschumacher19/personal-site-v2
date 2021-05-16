@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import Hero from '../components/Hero/Hero';
 import Info from '../components/Content/InfoOne';
-import { InfoDataOne, InfoDataTwo, InfoDataThree } from '../data/InfoData'
+import { InfoDataOne, InfoDataTwo, InfoDataThree, InfoDataFour } from '../data/InfoData'
 import InfoTwo from '../components/Content/InfoTwo';
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 
 const StyledHeader = styled.h1`
@@ -22,17 +24,29 @@ const StyledHeader = styled.h1`
     }
 
 `;
+
+const Section = styled.section`
+    width: 100%;
+    height: 100%;
+    padding: 4rem 0rem;
+
+    @media screen and (max-width: 768px) {
+        height: auto;
+    }
+`;
+
 function Home( props ) {
     return (
         <>
             <Hero />
             < InfoTwo />
-            <div style={{width: '100%', height: '100%'}}>
-            <StyledHeader >Projects.</StyledHeader>
+            <Section id="projects">
+            <StyledHeader data-aos="slide-right">Projects.</StyledHeader>
             <Info { ...InfoDataOne }/>
             <Info { ...InfoDataThree } />
             <Info { ...InfoDataTwo } />
-            </div>
+            <Info { ...InfoDataFour } />
+            </Section>
         </>
     )
 }

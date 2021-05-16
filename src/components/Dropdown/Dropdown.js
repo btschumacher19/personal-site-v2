@@ -34,9 +34,12 @@ const CloseIcon = styled(AiOutlineClose)`
 `;
 
 const DropdownMenu = styled.div`
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4,80px);
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* grid-template-columns: 1fr;
+    grid-template-rows: repeat(4,80px); */
     text-align: center;
     margin-bottom: 4rem;
 
@@ -67,26 +70,32 @@ const ButtonWrap = styled.div`
 `;
 
 const Dropdown = ( props ) => {
+
+    const handleClick =( location )=> {
+        props.toggle()
+        window.location.replace(`${ location }`)
+    }
     return (
         <DropdownContainer isOpen= { props.isOpen } toggle={ props.toggle }>
             <Icon onClick={ props.toggle }>
                 <CloseIcon />
             </Icon>
-            <div>
+            
                 <DropdownMenu>
                      { menuItems.map((item, idx) => (
-                    <DropdownLink to={item.link} key={idx}>
-                        {item.title}
-                    </DropdownLink>
-                     ))}
-                    </DropdownMenu>
-                    <ButtonWrap>
-                        <Button  primary="true" round="true" big="true" to="/contact">
-                            Contact Me
+                          item.title !== 'About Me'
+                        ? <DropdownLink to={item.link} key={idx} onClick={()=> handleClick(item.link)} >
+                            {item.title}
+                        </DropdownLink>
+                        :  <ButtonWrap>
+                        <Button  primary="true" round="true" big="true"  to={item.link} key={idx} onClick={()=> handleClick(item.link)}>
+                            {item.title}
                         </Button>
                     </ButtonWrap>
+                     ))}
+                    </DropdownMenu>
                 
-            </div>
+            
         </DropdownContainer>
     )
 }

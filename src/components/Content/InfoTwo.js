@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
 import profile from '../../images/profile.jpg';
 import { AiFillGithub, AiFillLinkedin, AiFillFilePdf, AiFillMail } from 'react-icons/ai'
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 const Section = styled.section`
     width: 100%;
@@ -139,7 +141,7 @@ const EmailIcon = styled(AiFillMail)`
 const InfoTwo =()=> {
     return (
         <Section id="about">
-        <Card>
+        <Card data-aos="flip-up">
             <Head>
                 <h1>
                     About Me.

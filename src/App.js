@@ -7,7 +7,6 @@ import Navbar, { NavUnder } from './components/Navbar/Navbar';
 import Dropdown from './components/Dropdown/Dropdown';
 
 import Home from './pages/Home';
-import { SliderData } from './data/SliderData';
 
 const BASE_URL = "/personal-site-v2"
 

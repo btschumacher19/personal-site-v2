@@ -38,6 +38,7 @@ const NavLink = css`
     height: 100%;
     cursor: pointer;
     text-decoration: none;
+    margin-right: 20px;
 `;
 
 //left-most item
@@ -79,6 +80,19 @@ const NavMenuLink = styled(Link)`
     }
 `;
 
+const NavItem = styled.button`
+    ${NavLink}
+    font-size: 16px;
+    background: none;
+    border: none;
+    transition: 0.1s ease-in-out;
+    &:hover {
+        /* border-bottom: solid 2px #92d1a2; */
+        color: #92d1a2;
+        transform: scale(1.1)
+    }
+`;
+
 const NavButtonWrap = styled.div`
     display: flex;
     align-items: center;
@@ -105,25 +119,27 @@ width: 100%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
-`;
+`; 
 
 const Navbar =( props )=> {
     return (
         <span>
         <StyledNavbar>
-            <Logo to="/" onClick={() => window.location.replace(`/personal-site-v2/#top`)}>Brenden Schumacher</Logo>
+            <Logo to="/personal-site-v2/#top" onClick={() => window.location.replace(`/personal-site-v2/#top`)}>Brenden Schumacher</Logo>
             <Hamburger onClick={ props.toggle }/>
             <NavMenu>
             {
                 menuItems.map((item, idx) => (
-                    <NavMenuLink to={""} key={idx} onClick={() => window.location.replace(`${item.link}`)}>
+                    item.title !== 'About Me'
+                    ? <NavItem key={idx} onClick={() => window.location.replace(`${item.link}`)}>
                         {item.title}
-                    </NavMenuLink>
+                    </NavItem>
+                    : <NavButtonWrap>
+                        <SecondaryButton key={idx} onClick={() => window.location.replace(`${item.link}`)} round="true" >{item.title}</SecondaryButton>
+                    </NavButtonWrap>
                 ))
             }
-            <NavButtonWrap>
-                <SecondaryButton to="/" round="true" >Contact</SecondaryButton>
-            </NavButtonWrap>
+
             </NavMenu>
         </StyledNavbar>
         

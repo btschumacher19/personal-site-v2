@@ -5,15 +5,6 @@ import { FiFigma } from 'react-icons/fi'
 import Aos from 'aos';
 import 'aos/dist/aos.css'
 
-const Section = styled.section`
-    width: 100%;
-    height: 100%;
-    padding: 4rem 0rem;
-
-    @media screen and (max-width: 768px) {
-        height: auto;
-    }
-`;
 
 const Container = styled.div`
     padding: 3rem calc((100vw - 1300px) / 2);
@@ -199,7 +190,7 @@ const Info = ( props ) => {
     }
 
     return (
-        <Section id="projects">
+        <>
             <Container landscape={ landscape }>
                 <ColumnLeft reverse={ reverse } data-aos={ columnLeftAnimation(reverse) }>
                     <h1>{ heading }</h1>
@@ -221,7 +212,7 @@ const Info = ( props ) => {
                     <img src={ image } alt=":)"/>
                 </ColumnRight>
             </Container>
-        </Section>
+        </>
 
     )
 }
