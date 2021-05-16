@@ -74,7 +74,7 @@ const HeroImageUnder = styled.img`
 
 const HeroItems = styled.div`
     position: relative;
-    z-index: 10;
+    z-index: 5;
     display: flex;
     height: auto;
     flex-direction: column;
@@ -126,7 +126,8 @@ const Card = styled.div`
     }
     
     & .myName {
-        font-size: 3.5rem;
+        font-family: 'Abril Fatface', cursive;
+        font-size: 3.8rem;
         background: none;
         color: #92d1a2;
         font-weight: 700;
@@ -138,7 +139,7 @@ const Card = styled.div`
         }
 
         @media screen and (max-width: 768px) {
-        font-size: 2rem;
+        font-size: 2.4rem;
     }
     }
     div {

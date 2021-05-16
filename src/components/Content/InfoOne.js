@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { Button } from '../Buttons/PrimaryButton';
 import { AiFillGithub, AiOutlineYoutube, AiOutlineLink } from 'react-icons/ai'
 import { FiFigma } from 'react-icons/fi'
 import Aos from 'aos';
@@ -27,7 +26,7 @@ const Container = styled.div`
     @media screen and (max-width: 768px) {
         padding: .2rem;
         grid-template-columns: 1fr;
-        grid-template-rows: 600px;
+        grid-template-rows: auto;
 
     }
 
@@ -37,6 +36,10 @@ const Container = styled.div`
 
     img {
         border-radius: 6px;
+    }
+
+    div {
+        margin-bottom: 1rem;
     }
 `;
 
@@ -116,46 +119,41 @@ const genericIcon = css`
     margin-top: 32px;
     font-size: 3rem;
     vertical-align: center;
-
+    fill: #000;
+    color: #000;
     transition: 0.3s ease-in-out;
+    &:hover {
+        transform: rotate(0.02turn);
+        fill: #73A580;
+    }
 
 `;
 
 const GithubIcon = styled(AiFillGithub)`
     ${genericIcon}
-    fill: black;
-    &:hover {
-        transform: rotate(0.02turn);
-        fill: #73A580;
-    }
 `;
 
 const FigmaIcon = styled(FiFigma)`
     ${genericIcon}
-    color: black;
+    fill: none;
     &:hover {
         transform: rotate(-0.02turn);
+        fill: none;
         color: #73A580;
     }
 `;
 
 const YoutubeIcon = styled(AiOutlineYoutube)`
     ${genericIcon}
-    fill: black;
-    &:hover {
-        transform: rotate(0.02turn);
-        fill: #73A580;
-    }
+
 `;
 
 const LiveIcon = styled(AiOutlineLink)`
     ${genericIcon}
-    fill: black;
     &:hover {
-        transform: rotate(0.02turn);
-        fill: #73A580;
+        transform: rotate(-0.02turn);
     }
-`
+`;
 
 
 const Info = ( props ) => {

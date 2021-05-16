@@ -6,6 +6,7 @@ import { menuItems } from '../../data/NavItems';
 import { SecondaryButton } from '../Buttons/PrimaryButton';
 import { CgMenuRight } from 'react-icons/cg';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL
 
 //background div for navbar
 const StyledNavbar = styled.nav`
@@ -115,7 +116,7 @@ const Navbar =( props )=> {
             <NavMenu>
             {
                 menuItems.map((item, idx) => (
-                    <NavMenuLink to={""} key={idx} onClick={() => window.location.replace(`/personal-site-v2/#${item.link}`)}>
+                    <NavMenuLink to={""} key={idx} onClick={() => window.location.replace(`${item.link}`)}>
                         {item.title}
                     </NavMenuLink>
                 ))

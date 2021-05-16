@@ -39,3 +39,16 @@ export const InfoDataThree = {
     reverse: false,
     landscape: true,
 }
+
+export const InfoDataFour = {
+    heading: 'Sprint Management For Teams',
+    p1: 'Group project for coding instructors, where they can create coding challenges and generate collaborative, Google-Docs-esque Development Environment (IDE) breakout sessions for students to pair program in with live video chat.',
+    p2: 'Built with React, Django, PostgreSQL, Firebase, Docker, Google Cloud Compute Engine, Firepad, and the Judge0 Compiler API',
+    image: CodeRoom,
+    liveLink: undefined,
+    youtubeLink: 'https://youtu.be/Am0VxiPCnrU',
+    githubLink: 'https://github.com/btschumacher19/scrum-board',
+    figmaLink: undefined,
+    reverse: false,
+    landscape: true,
+}
